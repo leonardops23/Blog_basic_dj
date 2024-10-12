@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="row m-4">
+    {% for post in object_list %}
+      <div class="col-md-4">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title">
+              <span class="short-title">{{ post.title|slice:":50" }}...</span>
+              <span class="full-title d-none">{{ post.title }}</span>
+            </h5>
+            <p class="card-text">
+              <span class="short-text">{{ post.description|slice:":100" }}...</span>
+              <span class="full-text d-none">{{ post.description }}</span>
+            </p>
+            <button class="btn btn-primary btn-show-more">Mostrar más</button>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock content %}
